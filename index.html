@@ -1,0 +1,3404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SPARC International Symposium on Smart Health Care and Robotics 2026 | NIT Rourkela</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #6366f1;
+      /* Indigo */
+      --secondary: #06b6d4;
+      /* Cyan */
+      --accent: #22c55e;
+      /* Green */
+      --dark: #020617;
+      --light: #f8fafc;
+      --glass: rgba(255, 255, 255, 0.75);
+    }
+
+    /* CFP BUTTONS */
+    .cfp-actions {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    /* SPONSORS SECTION - MODERN COMPACT DESIGN */
+    .sponsors-bar {
+      position: relative;
+      margin-top: 0; /* Remove margin since body padding handles spacing */
+      padding: 30px 0; /* Reduced from 60px */
+      background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.98) 0%, 
+        rgba(248, 250, 252, 0.99) 50%, 
+        rgba(241, 245, 249, 0.98) 100%);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(99, 102, 241, 0.1);
+      border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+      box-shadow: 
+        0 -5px 20px rgba(0, 0, 0, 0.03),
+        0 5px 20px rgba(0, 0, 0, 0.03),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    /* Animated background pattern - reduced */
+    .sponsors-bar::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 200%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.02), transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(6, 182, 212, 0.02), transparent 50%);
+      animation: sponsorsBg 20s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes sponsorsBg {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(25%); }
+    }
+
+    /* Sponsors container */
+    .sponsors-container {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Compact section title */
+    .sponsors-title {
+      text-align: center;
+      margin-bottom: 20px; /* Reduced from 30px */
+      position: relative;
+    }
+
+    .sponsors-title h3 {
+      font-size: 1.3rem; /* Reduced from 1.5rem */
+      font-weight: 700;
+      background: linear-gradient(135deg, #1e293b, #475569);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 6px; /* Reduced from 8px */
+      letter-spacing: -0.01em;
+    }
+
+    .sponsors-title p {
+      font-size: 0.8rem; /* Reduced from 0.9rem */
+      color: #64748b;
+      font-weight: 500;
+      max-width: 400px; /* Reduced from 500px */
+      margin: 0 auto;
+    }
+
+    /* Compact sponsors grid */
+    .sponsors-grid {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px; /* Reduced from 30px */
+      flex-wrap: wrap;
+      max-width: 700px; /* Reduced from 800px */
+      margin: 0 auto;
+    }
+
+    /* Compact sponsor card */
+    .sponsor-card {
+      position: relative;
+      padding: 15px; /* Reduced from 20px */
+      border-radius: 14px; /* Reduced from 16px */
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.06), /* Reduced shadows */
+        0 2px 6px rgba(0, 0, 0, 0.03),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      width: 120px; /* Reduced from 140px */
+      height: 85px; /* Reduced from 100px */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Compact hover effects */
+    .sponsor-card:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.1),
+        0 4px 15px rgba(99, 102, 241, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
+      border-color: rgba(99, 102, 241, 0.2);
+    }
+
+    /* Subtle border glow */
+    .sponsor-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background: linear-gradient(45deg, 
+        rgba(99, 102, 241, 0.3), 
+        rgba(6, 182, 212, 0.3), 
+        rgba(34, 197, 94, 0.2),
+        rgba(99, 102, 241, 0.3));
+      background-size: 400% 400%;
+      border-radius: 16px;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      animation: borderGlow 8s ease-in-out infinite;
+    }
+
+    @keyframes borderGlow {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .sponsor-card:hover::before {
+      opacity: 0.4;
+    }
+
+    /* Compact sponsor logo */
+    .sponsor-logo {
+      max-height: 40px; /* Reduced from 50px */
+      max-width: 85px; /* Reduced from 100px */
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      filter: grayscale(20%) contrast(1.1);
+      opacity: 0.9;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .sponsor-card:hover .sponsor-logo {
+      filter: grayscale(0%) contrast(1.2) brightness(1.05);
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    /* Subtle floating animation */
+    .sponsor-card:nth-child(1) { animation: subtleFloat1 8s ease-in-out infinite; }
+    .sponsor-card:nth-child(2) { animation: subtleFloat2 9s ease-in-out infinite; }
+    .sponsor-card:nth-child(3) { animation: subtleFloat3 10s ease-in-out infinite; }
+    .sponsor-card:nth-child(4) { animation: subtleFloat4 11s ease-in-out infinite; }
+
+    @keyframes subtleFloat1 {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-2px); }
+    }
+
+    @keyframes subtleFloat2 {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-3px); }
+    }
+
+    @keyframes subtleFloat3 {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-2.5px); }
+    }
+
+    @keyframes subtleFloat4 {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-3.5px); }
+    }
+
+    /* Responsive design - compact */
+    @media(max-width: 768px) {
+      .sponsors-bar {
+        padding: 25px 0; /* Reduced from 50px */
+      }
+
+      .sponsors-title h3 {
+        font-size: 1.2rem; /* Reduced from 1.3rem */
+      }
+
+      .sponsors-title p {
+        font-size: 0.75rem; /* Reduced from 0.85rem */
+      }
+
+      .sponsors-title {
+        margin-bottom: 15px; /* Reduced */
+      }
+
+      .sponsors-grid {
+        gap: 15px; /* Reduced from 20px */
+        max-width: 280px; /* Reduced from 320px */
+      }
+
+      .sponsor-card {
+        width: 100px; /* Reduced from 120px */
+        height: 70px; /* Reduced from 80px */
+        padding: 12px; /* Reduced from 15px */
+      }
+
+      .sponsor-logo {
+        max-height: 35px; /* Reduced from 40px */
+        max-width: 70px; /* Reduced from 80px */
+      }
+    }
+
+    @media(max-width: 480px) {
+      .sponsors-bar {
+        padding: 20px 0; /* Reduced from 40px */
+      }
+
+      .sponsors-grid {
+        flex-direction: column;
+        gap: 12px; /* Reduced from 15px */
+        max-width: 120px; /* Reduced from 140px */
+      }
+
+      .sponsor-card {
+        width: 120px; /* Reduced from 140px */
+        height: 60px; /* Reduced from 70px */
+      }
+    }
+
+
+    .btn-cmt {
+      padding: 12px 26px;
+      border-radius: 30px;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border: none;
+      box-shadow: 0 12px 30px rgba(99, 102, 241, 0.35);
+      transition: all .3s ease;
+    }
+
+    .btn-cmt:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 45px rgba(99, 102, 241, 0.5);
+    }
+
+    /* PUBLICATION BOX */
+    .publication-box {
+      margin-top: 28px;
+      padding: 24px 30px;
+      border-radius: 18px;
+      background: #ffffff;
+      border-left: 6px solid var(--primary);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      text-align: left;
+    }
+
+    .publication-box h5 {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #0f172a;
+    }
+
+    .publication-box p {
+      margin-bottom: 6px;
+      font-size: 15px;
+      color: #334155;
+    }
+
+    .publication-box a {
+      color: var(--primary);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .publication-box a:hover {
+      text-decoration: underline;
+    }
+
+    .btn-trending {
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 600;
+      color: #0f172a;
+      background: #fff;
+      border: 2px solid var(--accent);
+      position: relative;
+      overflow: hidden;
+      transition: all .3s ease;
+    }
+
+    .btn-trending i {
+      color: var(--accent);
+      margin-right: 6px;
+    }
+
+    .btn-trending::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), transparent);
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+
+    .btn-trending:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(34, 197, 94, 0.35);
+    }
+
+    .btn-trending:hover::after {
+      opacity: 1;
+    }
+
+    /* subtle pulse */
+    .trending-pulse {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+      }
+
+      70% {
+        box-shadow: 0 0 0 14px rgba(34, 197, 94, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+      }
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, #f1f5f9, #ffffff);
+      color: #0f172a;
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    /* NOTICE SECTION - ENHANCED MODERN DESIGN */
+    .notice-section {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      background: linear-gradient(135deg, 
+        rgba(248, 250, 252, 0.98) 0%, 
+        rgba(255, 255, 255, 0.95) 50%,
+        rgba(241, 245, 249, 0.98) 100%);
+      border-bottom: 1px solid rgba(99, 102, 241, 0.15);
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.12),
+        0 2px 8px rgba(99, 102, 241, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      z-index: 1049;
+      margin-top: 80px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 12px 20px; /* Significantly reduced from 20px 25px */
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+    }
+
+    /* Adjust for scrolled navbar */
+    .navbar.scrolled ~ .notice-section {
+      margin-top: 65px;
+      padding: 8px 20px; /* Even more compact when scrolled */
+      box-shadow: 
+        0 6px 24px rgba(0, 0, 0, 0.08),
+        0 1px 4px rgba(99, 102, 241, 0.06);
+    }
+
+    .notice-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 16px; /* Reduced from 20px */
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* Enhanced modern notice icon */
+    .notice-icon {
+      width: 36px; /* Reduced from 40px */
+      height: 36px;
+      background: linear-gradient(135deg, #ef4444, #dc2626, #b91c1c);
+      border-radius: 10px; /* Reduced from 12px */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 
+        0 4px 16px rgba(239, 68, 68, 0.3),
+        0 2px 8px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .navbar.scrolled ~ .notice-section .notice-icon {
+      width: 32px; /* Reduced from 35px */
+      height: 32px;
+      border-radius: 8px;
+    }
+
+    /* Enhanced shimmer effect */
+    .notice-icon::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, 
+        transparent 30%, 
+        rgba(255, 255, 255, 0.4) 50%, 
+        transparent 70%);
+      transform: translateX(-100%);
+      animation: enhancedShimmer 2.5s ease-in-out infinite;
+    }
+
+    @keyframes enhancedShimmer {
+      0% { 
+        transform: translateX(-100%) skewX(-15deg); 
+        opacity: 0;
+      }
+      50% { 
+        opacity: 1;
+      }
+      100% { 
+        transform: translateX(100%) skewX(-15deg); 
+        opacity: 0;
+      }
+    }
+
+    .notice-icon i {
+      font-size: 14px; /* Reduced from 16px */
+      color: #ffffff;
+      position: relative;
+      z-index: 1;
+      animation: enhancedPulse 3s ease-in-out infinite;
+      transition: all 0.3s ease;
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+    }
+
+    .navbar.scrolled ~ .notice-section .notice-icon i {
+      font-size: 12px; /* Reduced from 14px */
+    }
+
+    @keyframes enhancedPulse {
+      0%, 100% { 
+        transform: scale(1) rotate(0deg); 
+      }
+      25% { 
+        transform: scale(1.1) rotate(-2deg); 
+      }
+      75% { 
+        transform: scale(1.05) rotate(2deg); 
+      }
+    }
+
+    /* Enhanced modern notice label */
+    .notice-label {
+      font-size: 13px; /* Reduced from 15px */
+      font-weight: 700;
+      color: #1e293b;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      position: relative;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, #1e293b 0%, #475569 50%, #64748b 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: all 0.3s ease;
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+    }
+
+    .navbar.scrolled ~ .notice-section .notice-label {
+      font-size: 11px; /* Reduced from 13px */
+      letter-spacing: 0.6px;
+    }
+
+    /* Enhanced underline with gradient animation */
+    .notice-label::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, #ef4444, #f97316, #eab308);
+      background-size: 200% 100%;
+      border-radius: 1px;
+      animation: gradientSlide 3s ease-in-out infinite;
+    }
+
+    @keyframes gradientSlide {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* Enhanced modern notice box */
+    .notice-box {
+      flex: 1;
+      height: 38px; /* Reduced from 45px */
+      background: linear-gradient(135deg, 
+        rgba(239, 68, 68, 0.08) 0%, 
+        rgba(220, 38, 38, 0.05) 50%,
+        rgba(185, 28, 28, 0.03) 100%);
+      border: 2px solid transparent;
+      background-clip: padding-box;
+      border-radius: 12px; /* Reduced from 16px */
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        0 4px 20px rgba(239, 68, 68, 0.12),
+        0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .navbar.scrolled ~ .notice-section .notice-box {
+      height: 32px; /* Reduced from 38px */
+      border-radius: 10px; /* Reduced from 12px */
+    }
+
+    /* Enhanced animated border with more colors */
+    .notice-box::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 2px;
+      background: linear-gradient(45deg, 
+        #ef4444 0%, 
+        #f97316 12.5%, 
+        #eab308 25%, 
+        #22c55e 37.5%, 
+        #06b6d4 50%, 
+        #6366f1 62.5%, 
+        #a855f7 75%, 
+        #ec4899 87.5%,
+        #ef4444 100%);
+      background-size: 800% 800%;
+      border-radius: 12px;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: xor;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      animation: enhancedBorderRotate 6s linear infinite;
+      transition: border-radius 0.3s ease;
+    }
+
+    .navbar.scrolled ~ .notice-section .notice-box::before {
+      border-radius: 10px;
+    }
+
+    @keyframes enhancedBorderRotate {
+      0% { background-position: 0% 50%; }
+      25% { background-position: 100% 0%; }
+      50% { background-position: 100% 100%; }
+      75% { background-position: 0% 100%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Enhanced scrolling content */
+    .notice-content {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      white-space: nowrap;
+      animation: enhancedScroll 35s linear infinite;
+      will-change: transform;
+      padding-left: 16px; /* Reduced from 20px */
+    }
+
+    .notice-text {
+      font-size: 12px; /* Reduced from 13px */
+      font-weight: 600;
+      background: linear-gradient(135deg, 
+        #dc2626 0%, 
+        #ef4444 25%, 
+        #f97316 50%, 
+        #eab308 75%, 
+        #dc2626 100%);
+      background-size: 300% 100%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 0.4px;
+      padding-right: 80px; /* Reduced from 100px */
+      animation: textGradientFlow 4s ease-in-out infinite;
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+      transition: font-size 0.3s ease;
+    }
+
+    .navbar.scrolled ~ .notice-section .notice-text {
+      font-size: 11px; /* Reduced from 12px */
+    }
+
+    @keyframes textGradientFlow {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    @keyframes enhancedScroll {
+      0% {
+        transform: translateY(-50%) translateX(100%);
+      }
+      100% {
+        transform: translateY(-50%) translateX(-100%);
+      }
+    }
+
+    /* Enhanced hover effects */
+    .notice-box:hover {
+      transform: translateY(-1px); /* Reduced from -2px */
+      box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.25),
+        0 8px 32px rgba(239, 68, 68, 0.25),
+        0 4px 16px rgba(0, 0, 0, 0.1);
+      background: linear-gradient(135deg, 
+        rgba(239, 68, 68, 0.12) 0%, 
+        rgba(220, 38, 38, 0.08) 50%,
+        rgba(185, 28, 28, 0.05) 100%);
+    }
+
+    .notice-box:hover .notice-content {
+      animation-play-state: paused;
+    }
+
+    .notice-box:hover::before {
+      animation-duration: 3s;
+    }
+
+    .notice-icon:hover {
+      transform: scale(1.05) rotate(5deg);
+      box-shadow: 
+        0 6px 20px rgba(239, 68, 68, 0.4),
+        0 3px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Enhanced responsive design */
+    @media(max-width: 768px) {
+      .notice-section {
+        margin-top: 75px;
+        padding: 10px 16px; /* Reduced from 15px 20px */
+      }
+
+      .navbar.scrolled ~ .notice-section {
+        margin-top: 60px;
+        padding: 6px 16px; /* Reduced from 12px 20px */
+      }
+
+      .notice-wrapper {
+        gap: 12px; /* Reduced from 15px */
+      }
+
+      .notice-icon {
+        width: 32px; /* Reduced from 35px */
+        height: 32px;
+      }
+
+      .navbar.scrolled ~ .notice-section .notice-icon {
+        width: 28px; /* Reduced from 30px */
+        height: 28px;
+      }
+
+      .notice-icon i {
+        font-size: 12px; /* Reduced from 14px */
+      }
+
+      .navbar.scrolled ~ .notice-section .notice-icon i {
+        font-size: 10px; /* Reduced from 12px */
+      }
+
+      .notice-label {
+        font-size: 11px; /* Reduced from 13px */
+      }
+
+      .navbar.scrolled ~ .notice-section .notice-label {
+        font-size: 9px; /* Reduced from 11px */
+      }
+
+      .notice-box {
+        height: 34px; /* Reduced from 40px */
+      }
+
+      .navbar.scrolled ~ .notice-section .notice-box {
+        height: 28px; /* Reduced from 35px */
+      }
+
+      .notice-text {
+        font-size: 11px; /* Reduced from 12px */
+      }
+
+      .navbar.scrolled ~ .notice-section .notice-text {
+        font-size: 10px; /* Reduced from 11px */
+      }
+    }
+
+    @media(max-width: 480px) {
+      .notice-section {
+        margin-top: 70px;
+        padding: 8px 12px; /* Reduced from 12px 15px */
+      }
+
+      .navbar.scrolled ~ .notice-section {
+        margin-top: 55px;
+        padding: 5px 12px; /* Reduced from 10px 15px */
+      }
+
+      .notice-wrapper {
+        gap: 10px; /* Reduced from 12px */
+      }
+
+      .notice-icon {
+        width: 28px; /* Reduced from 30px */
+        height: 28px;
+      }
+
+      .navbar.scrolled ~ .notice-section .notice-icon {
+        width: 26px; /* Reduced from 28px */
+        height: 26px;
+      }
+
+      .notice-icon i {
+        font-size: 10px; /* Reduced from 12px */
+      }
+
+      .navbar.scrolled ~ .notice-section .notice-icon i {
+        font-size: 9px; /* Reduced from 11px */
+      }
+
+      .notice-label {
+        font-size: 9px; /* Reduced from 11px */
+      }
+
+      .navbar.scrolled ~ .notice-section .notice-label {
+        font-size: 8px; /* Reduced from 10px */
+      }
+
+      .notice-box {
+        height: 30px; /* Reduced from 35px */
+      }
+
+      .navbar.scrolled ~ .notice-section .notice-box {
+        height: 26px; /* Reduced from 32px */
+      }
+
+      .notice-text {
+        font-size: 10px; /* Reduced from 11px */
+      }
+
+      .navbar.scrolled ~ .notice-section .notice-text {
+        font-size: 9px; /* Reduced from 10px */
+      }
+    }
+
+    /* OPTIMIZED BODY SPACING */
+    body {
+      padding-top: 140px; /* Reduced from 160px */
+      transition: padding-top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @media(max-width: 768px) {
+      body {
+        padding-top: 135px; /* Reduced from 150px */
+      }
+    }
+
+    @media(max-width: 480px) {
+      body {
+        padding-top: 130px; /* Reduced from 142px */
+      }
+    }
+
+    /* NAVBAR - ULTRA MODERN ENHANCED */
+    .navbar {
+      position: fixed !important;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      background: linear-gradient(135deg, 
+        rgba(99, 102, 241, 0.95) 0%, 
+        rgba(79, 70, 229, 0.95) 25%,
+        rgba(67, 56, 202, 0.95) 50%,
+        rgba(55, 48, 163, 0.95) 75%,
+        rgba(49, 46, 129, 0.95) 100%) !important;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 
+        0 8px 32px rgba(99, 102, 241, 0.3),
+        0 4px 16px rgba(0, 0, 0, 0.2),
+        0 1px 0 rgba(255, 255, 255, 0.1) inset,
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+      padding: 15px 0;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1050;
+      will-change: transform, background, padding;
+    }
+
+    /* Scrolled state - enhanced */
+    .navbar.scrolled {
+      background: linear-gradient(135deg, 
+        rgba(99, 102, 241, 0.98) 0%, 
+        rgba(79, 70, 229, 0.98) 25%,
+        rgba(67, 56, 202, 0.98) 50%,
+        rgba(55, 48, 163, 0.98) 75%,
+        rgba(49, 46, 129, 0.98) 100%) !important;
+      padding: 8px 0;
+      box-shadow: 
+        0 12px 40px rgba(99, 102, 241, 0.4),
+        0 6px 20px rgba(0, 0, 0, 0.3),
+        0 1px 0 rgba(255, 255, 255, 0.15) inset,
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    /* Always visible - no hide/show animations */
+    .navbar.navbar-visible {
+      transform: translateY(0) !important;
+      opacity: 1 !important;
+      pointer-events: all !important;
+    }
+
+    /* Navbar at top state */
+    .navbar.at-top {
+      background: linear-gradient(135deg, 
+        rgba(99, 102, 241, 0.9) 0%, 
+        rgba(79, 70, 229, 0.9) 25%,
+        rgba(67, 56, 202, 0.9) 50%,
+        rgba(55, 48, 163, 0.9) 75%,
+        rgba(49, 46, 129, 0.9) 100%) !important;
+      box-shadow: 
+        0 6px 25px rgba(99, 102, 241, 0.25),
+        0 3px 12px rgba(0, 0, 0, 0.15),
+        0 1px 0 rgba(255, 255, 255, 0.08) inset;
+    }
+
+    /* Brand styling - enhanced for colorful navbar */
+    .navbar-brand {
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      font-size: 1.5rem;
+      position: relative;
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #e2e8f0 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    }
+
+    .navbar-brand:hover {
+      background: linear-gradient(135deg, #ffffff 0%, #fbbf24 30%, #f59e0b 70%, #ffffff 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transform: scale(1.05) translateY(-1px);
+      filter: drop-shadow(0 4px 15px rgba(251, 191, 36, 0.6));
+    }
+
+    /* Brand glow effect - enhanced */
+    .navbar-brand::after {
+      content: "";
+      position: absolute;
+      inset: -5px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(251, 191, 36, 0.3));
+      border-radius: 12px;
+      opacity: 0;
+      z-index: -1;
+      filter: blur(15px);
+      transition: opacity 0.4s ease;
+    }
+
+    .navbar-brand:hover::after {
+      opacity: 0.6;
+    }
+
+    /* Navigation container */
+    .navbar-nav {
+      gap: 6px;
+      align-items: center;
+    }
+
+    /* Navigation links - enhanced for colorful navbar */
+    .navbar-nav .nav-link {
+      position: relative;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.95) !important;
+      padding: 12px 20px;
+      border-radius: 16px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Multi-layer hover background */
+    .navbar-nav .nav-link::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.2) 0%, 
+        rgba(255, 255, 255, 0.15) 50%, 
+        rgba(255, 255, 255, 0.1) 100%);
+      border-radius: 16px;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .navbar-nav .nav-link:hover::before {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Enhanced underline animation */
+    .navbar-nav .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 8px;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #fbbf24, #f59e0b, #ffffff);
+      border-radius: 2px;
+      transform: translateX(-50%);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 10px rgba(251, 191, 36, 0.5);
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #ffffff !important;
+      transform: translateY(-2px);
+      text-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+    }
+
+    .navbar-nav .nav-link:hover::after {
+      width: 70%;
+    }
+
+    /* Active link styling - enhanced */
+    .navbar-nav .nav-link.active {
+      color: #ffffff !important;
+      background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.25) 0%, 
+        rgba(255, 255, 255, 0.2) 50%, 
+        rgba(255, 255, 255, 0.15) 100%);
+      box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.2),
+        0 2px 10px rgba(255, 255, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .navbar-nav .nav-link.active::after {
+      width: 70%;
+      background: linear-gradient(90deg, #ffffff, #fbbf24);
+      box-shadow: 0 2px 15px rgba(255, 255, 255, 0.6);
+    }
+
+    /* Mobile toggler - enhanced for colorful navbar */
+    .navbar-toggler {
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 16px;
+      padding: 10px 14px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-toggler:hover {
+      border-color: rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
+      outline: none;
+    }
+
+    .navbar-toggler-icon {
+      filter: invert(1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+      transform: rotate(180deg) scale(1.1);
+    }
+
+    /* Mobile menu - enhanced for colorful navbar */
+    @media(max-width: 991px) {
+      .navbar-collapse {
+        margin-top: 25px;
+        background: linear-gradient(135deg, 
+          rgba(99, 102, 241, 0.98) 0%, 
+          rgba(79, 70, 229, 0.98) 25%,
+          rgba(67, 56, 202, 0.98) 50%,
+          rgba(55, 48, 163, 0.98) 75%,
+          rgba(49, 46, 129, 0.98) 100%);
+        backdrop-filter: blur(25px);
+        border-radius: 24px;
+        padding: 30px;
+        box-shadow: 
+          0 25px 80px rgba(0, 0, 0, 0.4),
+          0 10px 40px rgba(99, 102, 241, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2),
+          inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        animation: mobileMenuSlide 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      @keyframes mobileMenuSlide {
+        0% {
+          opacity: 0;
+          transform: translateY(-20px) scale(0.95);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .navbar-nav {
+        gap: 8px;
+      }
+
+      .navbar-nav .nav-link {
+        margin: 0;
+        padding: 16px 24px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+      }
+
+      .navbar-nav .nav-link::after {
+        bottom: 10px;
+        left: 24px;
+        transform: none;
+      }
+
+      .navbar-nav .nav-link:hover::after,
+      .navbar-nav .nav-link.active::after {
+        width: calc(100% - 48px);
+      }
+    }
+
+    /* Responsive brand */
+    @media(max-width: 768px) {
+      .navbar-brand {
+        font-size: 1.3rem;
+      }
+    }
+
+    @media(max-width: 480px) {
+      .navbar-brand {
+        font-size: 1.1rem;
+      }
+    }
+
+    /* HERO SECTION - COMPACT MODERN DESIGN */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 65vh; /* Reduced from 75vh */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      padding: 0;
+      margin-top: 0; /* Remove margin since body padding handles spacing */
+    }
+
+    /* HERO CAROUSEL */
+    .hero-carousel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .hero-carousel .carousel-inner,
+    .hero-carousel .carousel-item {
+      height: 100%;
+    }
+
+    .hero-img {
+      height: 65vh; /* Reduced from 75vh */
+      width: 100%;
+      object-fit: cover;
+      filter: brightness(0.3) contrast(1.2) saturate(1.1);
+      transform: scale(1.05);
+      animation: kenburns 25s ease-in-out infinite alternate;
+    }
+
+    @keyframes kenburns {
+      0% { 
+        transform: scale(1.05) rotate(0deg);
+        filter: brightness(0.3) contrast(1.2) saturate(1.1);
+      }
+      50% {
+        filter: brightness(0.25) contrast(1.3) saturate(1.2);
+      }
+      100% { 
+        transform: scale(1.15) rotate(0.5deg);
+        filter: brightness(0.3) contrast(1.2) saturate(1.1);
+      }
+    }
+
+    /* Advanced gradient overlay with multiple layers */
+    .hero-carousel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 25% 15%, rgba(99, 102, 241, 0.6), transparent 60%),
+        radial-gradient(ellipse at 75% 85%, rgba(6, 182, 212, 0.5), transparent 60%),
+        radial-gradient(ellipse at 50% 50%, rgba(34, 197, 94, 0.2), transparent 70%),
+        linear-gradient(135deg, rgba(2, 6, 23, 0.8), rgba(15, 23, 42, 0.9)),
+        linear-gradient(45deg, rgba(99, 102, 241, 0.1), transparent 50%);
+      z-index: 1;
+      animation: gradientShift 15s ease-in-out infinite;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.9;
+      }
+    }
+
+    /* Enhanced animated particles */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: 
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><circle cx="10" cy="10" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="150" cy="50" r="1.5" fill="rgba(99,102,241,0.2)"/><circle cx="80" cy="120" r="1" fill="rgba(6,182,212,0.15)"/><circle cx="180" cy="180" r="2.5" fill="rgba(255,255,255,0.08)"/></svg>');
+      opacity: 0.6;
+      z-index: 1;
+      animation: floatParticles 40s linear infinite;
+    }
+
+    @keyframes floatParticles {
+      0% { 
+        transform: translateY(0) translateX(0);
+        opacity: 0.6;
+      }
+      25% {
+        opacity: 0.8;
+      }
+      50% {
+        transform: translateY(-50px) translateX(20px);
+        opacity: 0.4;
+      }
+      75% {
+        opacity: 0.7;
+      }
+      100% { 
+        transform: translateY(-100px) translateX(-10px);
+        opacity: 0.6;
+      }
+    }
+
+    /* Hero content container - compact */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      padding: 0 20px;
+      animation: heroContentFade 1.2s ease-out;
+    }
+
+    @keyframes heroContentFade {
+      0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Compact glass card */
+    .hero-glass {
+      position: relative;
+      padding: 40px 50px; /* Reduced from 50px 60px */
+      border-radius: 28px; /* Reduced from 32px */
+      background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04)),
+        rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 
+        0 12px 35px rgba(0, 0, 0, 0.4), /* Reduced shadows */
+        0 5px 20px rgba(99, 102, 241, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+      animation: glassAppear 1s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+    }
+
+    @keyframes glassAppear {
+      0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+        filter: blur(5px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+    }
+
+    /* Dynamic glow effect */
+    .hero-glass::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, 
+        rgba(99, 102, 241, 0.6), 
+        rgba(6, 182, 212, 0.6), 
+        rgba(34, 197, 94, 0.4),
+        rgba(99, 102, 241, 0.6));
+      background-size: 400% 400%;
+      border-radius: 32px;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      animation: gradientRotate 8s ease-in-out infinite;
+    }
+
+    @keyframes gradientRotate {
+      0%, 100% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    .hero-glass:hover::before {
+      opacity: 0.7;
+    }
+
+    /* Floating elements inside glass - smaller */
+    .hero-glass::after {
+      content: "";
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.1), transparent);
+      border-radius: 50%;
+      animation: floatElement 6s ease-in-out infinite;
+    }
+
+    @keyframes floatElement {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.3;
+      }
+      50% {
+        transform: translateY(-15px) scale(1.1);
+        opacity: 0.6;
+      }
+    }
+
+    /* Compact typography */
+    .hero h1 {
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      font-size: clamp(1.4rem, 3.5vw, 2.6rem); /* Reduced from clamp(1.6rem, 4vw, 3rem) */
+      margin-bottom: 16px; /* Reduced from 20px */
+      background: linear-gradient(135deg, #ffffff, #e2e8f0, #cbd5e1);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+      animation: titleGlow 3s ease-in-out infinite alternate;
+      position: relative;
+    }
+
+    @keyframes titleGlow {
+      0% {
+        filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+      }
+      100% {
+        filter: drop-shadow(0 0 30px rgba(99, 102, 241, 0.4));
+      }
+    }
+
+    /* Compact subtitle */
+    .hero-subtitle {
+      font-size: clamp(0.9rem, 1.8vw, 1.1rem); /* Reduced from clamp(0.95rem, 2vw, 1.2rem) */
+      color: #e0e7ff;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px; /* Reduced from 15px */
+      flex-wrap: wrap;
+      margin-top: 12px; /* Reduced from 15px */
+      animation: subtitleSlide 1s ease-out 0.4s both;
+    }
+
+    @keyframes subtitleSlide {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Compact badges */
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.1));
+      border: 2px solid rgba(34, 197, 94, 0.4);
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #86efac;
+      position: relative;
+      overflow: hidden;
+      animation: badgePulse 3s ease-in-out infinite;
+    }
+
+    .hero-badge::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transform: translateX(-100%);
+      animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    @keyframes badgePulse {
+      0%, 100% {
+        box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+        transform: scale(1);
+      }
+      50% {
+        box-shadow: 0 0 35px rgba(34, 197, 94, 0.6);
+        transform: scale(1.03);
+      }
+    }
+
+    .hero-divider {
+      width: 2px;
+      height: 20px;
+      background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+      border-radius: 2px;
+    }
+
+    /* Compact carousel indicators */
+    .carousel-indicators {
+      bottom: 30px;
+      z-index: 2;
+      gap: 6px;
+    }
+
+    .carousel-indicators [data-bs-target] {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      background: transparent;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel-indicators [data-bs-target]::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .carousel-indicators .active {
+      width: 35px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 3px 15px rgba(255, 255, 255, 0.3);
+    }
+
+    .carousel-indicators .active::before {
+      opacity: 1;
+      border-radius: 4px;
+    }
+
+    /* Compact scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      animation: bounce 2s infinite;
+    }
+
+    .scroll-indicator i {
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.7);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      40% {
+        transform: translateX(-50%) translateY(-8px);
+      }
+      60% {
+        transform: translateX(-50%) translateY(-4px);
+      }
+    }
+
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+      }
+      100% {
+        text-shadow: 0 0 25px rgba(99, 102, 241, 0.8);
+      }
+    }
+
+    /* Responsive enhancements - compact */
+    @media(max-width: 768px) {
+      .hero {
+        min-height: 55vh; /* Reduced from 60vh */
+        margin-top: 0;
+      }
+
+      .hero-img {
+        height: 55vh; /* Reduced from 60vh */
+      }
+
+      .hero-glass {
+        padding: 30px 25px; /* Reduced from 35px 30px */
+        border-radius: 22px; /* Reduced from 25px */
+      }
+      
+      .hero h1 {
+        font-size: 1.3rem; /* Reduced from 1.4rem */
+        margin-bottom: 12px; /* Reduced from 15px */
+      }
+      
+      .hero-subtitle {
+        flex-direction: column;
+        gap: 8px; /* Reduced from 10px */
+        font-size: 0.9rem; /* Reduced from 0.95rem */
+      }
+      
+      .hero-divider {
+        display: none;
+      }
+
+      .hero-badge {
+        padding: 5px 12px; /* Reduced from 6px 15px */
+        font-size: 0.75rem; /* Reduced from 0.8rem */
+      }
+    }
+
+    @media(max-width: 480px) {
+      .hero {
+        min-height: 45vh; /* Reduced from 50vh */
+        margin-top: 0;
+      }
+
+      .hero-img {
+        height: 45vh; /* Reduced from 50vh */
+      }
+
+      .hero-glass {
+        padding: 20px 18px; /* Reduced from 25px 20px */
+        border-radius: 18px; /* Reduced from 20px */
+      }
+      
+      .hero h1 {
+        font-size: 1.1rem; /* Reduced from 1.2rem */
+      }
+
+      .hero-subtitle {
+        font-size: 0.85rem; /* Reduced from 0.9rem */
+      }
+    }
+
+    /* MODERN CARD / GLASS */
+    .card {
+      border: 0;
+      border-radius: 20px;
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+    }
+
+    .card-hover {
+      transition: transform .4s ease, box-shadow .4s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.15);
+    }
+
+    /* BADGE */
+    .badge-closed {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+    }
+
+    /* TIMELINE */
+    .timeline {
+      border-left: 4px solid var(--primary);
+      padding-left: 25px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 28px;
+      font-weight: 500;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -36px;
+      top: 6px;
+      width: 16px;
+      height: 16px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+    }
+
+    /* TRACK BOXES */
+    .track-box {
+      padding: 30px;
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      height: 100%;
+    }
+
+    /* ENHANCED FOOTER */
+    footer {
+      background: linear-gradient(135deg, #020617 0%, #030712 50%, #0f172a 100%);
+      color: #cbd5f5;
+      padding: 50px 0 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Footer background pattern */
+    footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.1), transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.08), transparent 50%);
+      z-index: 0;
+    }
+
+    footer .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-section {
+      height: 100%;
+    }
+
+    .footer-logo-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(99, 102, 241, 0.2));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-title {
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #f1f5f9;
+      font-size: 1.1rem;
+      position: relative;
+    }
+
+    .footer-title::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 30px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--secondary), var(--primary));
+      border-radius: 2px;
+    }
+
+    .footer-subtitle {
+      font-weight: 600;
+      color: #e2e8f0;
+      font-size: 0.9rem;
+    }
+
+    .footer-desc {
+      color: #cbd5e1;
+      line-height: 1.5;
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 8px;
+    }
+
+    .footer-link {
+      color: #94a3b8;
+      text-decoration: none;
+      display: inline-block;
+      transition: all .3s ease;
+      position: relative;
+      padding-left: 0;
+      font-size: 14px;
+    }
+
+    .footer-link::before {
+      content: "";
+      position: absolute;
+      left: -15px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--secondary);
+      transition: width .3s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--secondary);
+      transform: translateX(8px);
+      padding-left: 15px;
+    }
+
+    .footer-link:hover::before {
+      width: 8px;
+    }
+
+    /* Enhanced Social Icons */
+    .social-links {
+      margin-top: 20px;
+    }
+
+    .social-icon {
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: all .4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-icon::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      opacity: 0;
+      transition: opacity .3s ease;
+      border-radius: 10px;
+    }
+
+    .social-icon:hover {
+      color: #fff;
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(6, 182, 212, 0.3);
+      border-color: rgba(6, 182, 212, 0.5);
+    }
+
+    .social-icon:hover::before {
+      opacity: 1;
+    }
+
+    .social-icon i {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Contact Items */
+    .contact-item {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .contact-item:last-child {
+      border-bottom: none;
+    }
+
+    .contact-item h6 {
+      color: #e2e8f0;
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    /* Enhanced Footer Bottom */
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 30px;
+      padding-top: 20px;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
+      border-radius: 15px 15px 0 0;
+    }
+
+    .footer-credits p {
+      font-size: 13px;
+      color: #94a3b8;
+      margin-bottom: 8px;
+    }
+
+    .footer-badges .badge {
+      font-size: 0.75rem;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    /* Responsive Footer */
+    @media(max-width: 768px) {
+      footer {
+        padding: 40px 0 15px;
+      }
+
+      .footer-title {
+        font-size: 1rem;
+      }
+
+      .footer-bottom {
+        text-align: center !important;
+      }
+
+      .footer-bottom .col-md-4 {
+        margin-top: 15px;
+      }
+
+      .social-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+      }
+    }
+
+    /* FADE */
+    .fade {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all .9s ease;
+    }
+
+    .fade.show {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#home">SPARC SHCR 2026</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav"><span
+          class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#sponsors">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cfp">CFP</a></li>
+          <li class="nav-item"><a class="nav-link" href="#objectives">Objectives</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#dates">Dates</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tracks">Tracks</a></li>
+          <li class="nav-item"><a class="nav-link" href="#committee">Committee</a></li>
+          <li class="nav-item"><a class="nav-link" href="#registration">Registration</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- NOTICE SECTION - MODERN SCROLLING TEXT -->
+  <section class="notice-section">
+    <div class="notice-wrapper">
+      <div class="notice-icon">
+        <i class="bi bi-megaphone-fill"></i>
+      </div>
+      <span class="notice-label">Notice</span>
+      <div class="notice-box">
+        <div class="notice-content">
+          <span class="notice-text">
+            🎯 SPARC SHCR 2026 Registration Now Open • 📅 Important Dates Updated • 📝 Paper Submission Guidelines Available • 🏆 Springer LNNS Publication • 🌟 Join Leading Researchers Worldwide • 💡 Smart Healthcare & Robotics Innovation
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPONSORS SECTION - COMPACT -->
+  <section id="sponsors" class="sponsors-bar">
+    <div class="container sponsors-container">
+      
+      <!-- Compact Section Title -->
+      <div class="sponsors-title">
+        <h3>Our Partners</h3>
+        <p>Supported by leading institutions committed to advancing healthcare innovation</p>
+      </div>
+
+      <!-- Compact Sponsors Grid -->
+      <div class="sponsors-grid">
+        
+        <div class="sponsor-card">
+          <img src="NIT_Rourkela_Colour_Logo_Official.png" alt="NIT Rourkela" class="sponsor-logo">
+        </div>
+
+        <div class="sponsor-card">
+          <img src="Springer.png" alt="Springer" class="sponsor-logo">
+        </div>
+
+        <div class="sponsor-card">
+          <img src="sparc-logo.png" alt="SPARC" class="sponsor-logo">
+        </div>
+
+        <div class="sponsor-card">
+          <img src="Ieee_blue.jpg" alt="IEEE" class="sponsor-logo">
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- <section id="home" class="hero text-center">
+  <div class="container fade">
+    <div class="hero-glass mx-auto">
+      <h1>SPARC INTERNATIONAL SYMPOSIUM ON<br>QUANTUM COMPUTING & APPLICATIONS</h1>
+      <p class="mt-3 fs-5">20–21 February 2026 | NIT Rourkela</p>
+    </div>
+  </div>
+</section> -->
+  <section id="home" class="hero text-center">
+    <!-- HERO CAROUSEL -->
+    <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel" data-bs-interval="5000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="National Institute of Technology NIT Rourkela….jpg" class="d-block w-100 hero-img"
+            alt="Medical Technology">
+        </div>
+        <div class="carousel-item">
+          <img src="nit image.webp" class="d-block w-100 hero-img"
+            alt="Robotics and AI">
+        </div>
+        <div class="carousel-item">
+          <img src="nit image.webp" class="d-block w-100 hero-img"
+            alt="Smart Healthcare">
+        </div>
+      </div>
+      
+      <!-- Modern Carousel Indicators -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+      </div>
+    </div>
+
+    <!-- HERO CONTENT -->
+    <div class="hero-content fade">
+      <div class="hero-glass mx-auto">
+        
+        <h1>SPARC INTERNATIONAL SYMPOSIUM ON<br>SMART HEALTH CARE AND ROBOTICS</h1>
+        
+        <div class="hero-subtitle mt-4">
+          <span><i class="bi bi-geo-alt-fill me-2"></i>NIT Rourkela, India</span>
+          <div class="hero-divider"></div>
+          <span><i class="bi bi-calendar3 me-2"></i>Date to be Announced...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+      <i class="bi bi-chevron-down"></i>
+    </div>
+  </section>
+
+  <section id="cfp">
+    <div class="container fade">
+      <div class="card card-hover p-5 text-center">
+        <h2>Call for Paper Submission</h2>
+
+        <p>
+          <span class="badge badge-closed">Deadline Closed</span>
+        </p>
+
+        <!-- BUTTONS -->
+        <div class="cfp-actions">
+          <a href="https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2FSPARCQC2026%2FSubmission%2FIndex"
+            class="btn btn-cmt">
+            <i class="bi bi-box-arrow-in-up-right me-1"></i>
+            Submit via Microsoft CMT
+          </a>
+
+          <a href="https://drive.google.com/file/d/1FomBoWvzzNn6m-dtz09sBUPAvksWyz7f/view?usp=sharing"
+            class="btn btn-trending trending-pulse">
+            <i class="bi bi-graph-up-arrow"></i>
+            Call for Papers
+          </a>
+        </div>
+
+        <!-- PUBLICATION INFO BOX -->
+        <div class="publication-box mt-4">
+          <div class="d-flex align-items-center mb-3">
+            <i class="bi bi-journal-bookmark fs-4 me-2" style="color: var(--primary);"></i>
+            <h5 class="mb-0 fw-bold">Publications</h5>
+          </div>
+          <p class="mb-2">Accepted and presented papers will be published in</p>
+          <p class="mb-3"><strong>Springer LNNS Series</strong> <span class="badge bg-success ms-2">SCOPUS Indexed</span></p>
+          <div class="d-flex align-items-center">
+            <span class="me-2">Submission guidelines:</span>
+            <a href="https://www.springernature.com/gp/authors" target="_blank" class="btn btn-sm btn-outline-primary">
+              <i class="bi bi-box-arrow-up-right me-1"></i>LNNS Guidelines
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="objectives">
+    <div class="container fade">
+      <h2 class="text-center mb-5">Symposium Objectives</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card card-hover p-4">
+            <div class="mb-3">
+              <i class="bi bi-lightbulb fs-1" style="color: var(--primary);"></i>
+            </div>
+            <h4>Innovation & Research</h4>
+            <p class="mb-0">Foster cutting-edge research in smart healthcare technologies and robotics applications, bringing together global experts and researchers.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card card-hover p-4">
+            <div class="mb-3">
+              <i class="bi bi-people fs-1" style="color: var(--secondary);"></i>
+            </div>
+            <h4>Collaboration</h4>
+            <p class="mb-0">Create networking opportunities between academia, industry, and healthcare professionals to advance interdisciplinary solutions.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card card-hover p-4">
+            <div class="mb-3">
+              <i class="bi bi-graph-up-arrow fs-1" style="color: var(--accent);"></i>
+            </div>
+            <h4>Knowledge Exchange</h4>
+            <p class="mb-0">Share latest developments, methodologies, and best practices in smart healthcare systems and robotic technologies.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card card-hover p-4">
+            <div class="mb-3">
+              <i class="bi bi-globe fs-1" style="color: var(--primary);"></i>
+            </div>
+            <h4>Global Impact</h4>
+            <p class="mb-0">Address real-world healthcare challenges through innovative robotic solutions and smart technology implementations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="nit-rourkela" class="bg-light">
+    <div class="container fade">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="card p-5">
+            <div class="d-flex align-items-center mb-4">
+              <i class="bi bi-building fs-1 me-3" style="color: var(--primary);"></i>
+              <h2 class="mb-0">About NIT Rourkela</h2>
+            </div>
+            <p class="mb-4">National Institute of Technology (NIT) Rourkela, an Institute of National Importance funded by the Ministry of Education, Government of India, will host this symposium. Nestled in the vibrant Steel City of Rourkela, the campus is renowned for its scenic beauty and advanced research infrastructure.</p>
+            
+            <div class="row g-3 mb-4">
+              <div class="col-sm-6">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-award-fill me-2" style="color: var(--accent);"></i>
+                  <small class="fw-bold">Times Higher Education</small>
+                </div>
+                <p class="mb-0 ms-4"><small class="text-muted">Ranked 601-800 worldwide (2024)</small></p>
+              </div>
+              <div class="col-sm-6">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-trophy-fill me-2" style="color: var(--secondary);"></i>
+                  <small class="fw-bold">QS Asia Rankings</small>
+                </div>
+                <p class="mb-0 ms-4"><small class="text-muted">Ranked 219 in Asia</small></p>
+              </div>
+            </div>
+
+            <div class="text-center">
+              <a href="https://www.nitrkl.ac.in" target="_blank" class="btn btn-outline-primary px-4 py-2" style="border-radius: 25px; font-weight: 600;">
+                <i class="bi bi-globe me-2"></i>Visit NIT Rourkela
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card p-5">
+            <h4 class="mb-4">Institute Highlights</h4>
+            <ul class="list-unstyled">
+              <li class="mb-3">
+                <i class="bi bi-check-circle-fill me-2" style="color: var(--accent);"></i>
+                Institute of National Importance
+              </li>
+              <li class="mb-3">
+                <i class="bi bi-check-circle-fill me-2" style="color: var(--accent);"></i>
+                Funded by Ministry of Education, Government of India
+              </li>
+              <li class="mb-3">
+                <i class="bi bi-check-circle-fill me-2" style="color: var(--accent);"></i>
+                Located in Steel City of Rourkela
+              </li>
+              <li class="mb-3">
+                <i class="bi bi-check-circle-fill me-2" style="color: var(--accent);"></i>
+                Scenic campus with advanced research infrastructure
+              </li>
+              <li class="mb-3">
+                <i class="bi bi-check-circle-fill me-2" style="color: var(--accent);"></i>
+                Globally recognized for academic excellence
+              </li>
+              <li class="mb-0">
+                <i class="bi bi-check-circle-fill me-2" style="color: var(--accent);"></i>
+                Leading research in engineering and technology
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="bg-light">
+    <div class="container fade">
+      <h2 class="text-center mb-5">About the Symposium</h2>
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="card p-5">
+            <h3 class="mb-4">SPARC International Symposium</h3>
+            <p>The SPARC International Symposium on Smart Health Care and Robotics brings together leading researchers, practitioners, and innovators from around the world to explore the intersection of healthcare technology and robotics.</p>
+            <p>Hosted by the prestigious National Institute of Technology Rourkela, this symposium provides a platform for presenting groundbreaking research, sharing innovative solutions, and fostering collaborations that will shape the future of healthcare delivery.</p>
+            <p class="mb-0">Join us in advancing the frontiers of smart healthcare through cutting-edge robotic technologies and intelligent systems.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card p-5">
+            <h4 class="mb-4">Why Attend?</h4>
+            <ul class="list-unstyled">
+              <li class="mb-3"><i class="bi bi-check-circle-fill me-2" style="color: var(--accent);"></i>Present your research to an international audience</li>
+              <li class="mb-3"><i class="bi bi-check-circle-fill me-2" style="color: var(--accent);"></i>Network with leading experts in healthcare robotics</li>
+              <li class="mb-3"><i class="bi bi-check-circle-fill me-2" style="color: var(--accent);"></i>Publish in Springer LNNS Series (SCOPUS indexed)</li>
+              <li class="mb-3"><i class="bi bi-check-circle-fill me-2" style="color: var(--accent);"></i>Explore collaboration opportunities</li>
+              <li class="mb-0"><i class="bi bi-check-circle-fill me-2" style="color: var(--accent);"></i>Learn about latest trends and technologies</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="dates">
+    <div class="container fade">
+      <h2 class="text-center mb-4">Important Dates</h2>
+      <div class="card p-4">
+        <div class="timeline">
+          <div class="timeline-item">Paper Submission: 15–25 Dec 2025</div>
+          <div class="timeline-item">Acceptance: 31 Dec 2025 – 15 Jan 2026</div>
+          <div class="timeline-item">Camera Ready: 10–20 Jan 2026</div>
+          <div class="timeline-item">Registration: 15–20 Jan 2026</div>
+          <div class="timeline-item">Symposium: 20–21 Feb 2026</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tracks" class="bg-light">
+    <div class="container fade">
+      <h2 class="text-center mb-5">Symposium Tracks</h2>
+      
+      <div class="row g-4">
+        <!-- Track 1 -->
+        <div class="col-lg-6">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center mb-3">
+              <i class="bi bi-cpu fs-2 me-3" style="color: var(--primary);"></i>
+              <h4 class="mb-0">Quantum Algorithms & Complexity</h4>
+            </div>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Advances in Quantum Search and Optimization Algorithms</li>
+              <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Quantum Machine Learning Frameworks</li>
+              <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Complexity Bounds in Variational Quantum Algorithms</li>
+              <li class="mb-0"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Quantum Simulation of Many-Body Systems</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Track 2 -->
+        <div class="col-lg-6">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center mb-3">
+              <i class="bi bi-motherboard fs-2 me-3" style="color: var(--accent);"></i>
+              <h4 class="mb-0">Quantum Hardware & Devices</h4>
+            </div>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Scalable Superconducting Qubit Architectures</li>
+              <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Advances in Trapped-Ion Quantum Processors</li>
+              <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Photonics-Based Quantum Computing Prototypes</li>
+              <li class="mb-0"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Cryogenic Control Electronics for Quantum Systems</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Track 3 -->
+        <div class="col-lg-6">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center mb-3">
+              <i class="bi bi-shield-check fs-2 me-3" style="color: var(--primary);"></i>
+              <h4 class="mb-0">Error Correction & Fault Tolerance</h4>
+            </div>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Topological Codes for Robust Quantum Computation</li>
+              <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Fault-Tolerant Gate Synthesis Techniques</li>
+              <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Adaptive Decoding Algorithms for Quantum Error Correction</li>
+              <li class="mb-0"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Resource Estimation for Large-Scale Fault-Tolerant Systems</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Track 4 -->
+        <div class="col-lg-6">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center mb-3">
+              <i class="bi bi-wifi fs-2 me-3" style="color: var(--accent);"></i>
+              <h4 class="mb-0">Quantum Communication & Networks</h4>
+            </div>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Quantum Key Distribution: From Theory to Deployment</li>
+              <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Entanglement Distribution in Quantum Networks</li>
+              <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Satellite-Based Quantum Communication Experiments</li>
+              <li class="mb-0"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Network Architecture for Quantum Internet</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Track 5 -->
+        <div class="col-lg-6">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center mb-3">
+              <i class="bi bi-diagram-3 fs-2 me-3" style="color: var(--primary);"></i>
+              <h4 class="mb-0">Hybrid Quantum–Classical Systems</h4>
+            </div>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Variational Hybrid Algorithms for Scientific Computing</li>
+              <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Quantum-Classical Data Fusion for Machine Learning</li>
+              <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Resource-Efficient Hybrid Simulation Techniques</li>
+              <li class="mb-0"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Middleware and Software Stacks for Hybrid Platforms</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Track 6 -->
+        <div class="col-lg-6">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center mb-3">
+              <i class="bi bi-gear-wide-connected fs-2 me-3" style="color: var(--accent);"></i>
+              <h4 class="mb-0">Applications of Quantum Computing</h4>
+            </div>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Quantum Approaches to Financial Risk Analysis</li>
+              <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Quantum Methods in Drug Discovery and Molecular Modeling</li>
+              <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>High-Energy Physics Simulations on Quantum Hardware</li>
+              <li class="mb-0"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Quantum Optimization in Supply Chain and Logistics</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Track 7 -->
+        <div class="col-lg-6">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center mb-3">
+              <i class="bi bi-lock fs-2 me-3" style="color: var(--primary);"></i>
+              <h4 class="mb-0">Quantum Security & Cryptography</h4>
+            </div>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Post-Quantum Cryptographic Schemes</li>
+              <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Quantum-Resistant Blockchain Protocols</li>
+              <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Device-Independent Security Proofs</li>
+              <li class="mb-0"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Quantum Randomness Generation and Verification</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Track 8 -->
+        <div class="col-lg-6">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center mb-3">
+              <i class="bi bi-stars fs-2 me-3" style="color: var(--accent);"></i>
+              <h4 class="mb-0">Emerging Quantum Technologies</h4>
+            </div>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Quantum Sensors and Metrology</li>
+              <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i>Integration of Quantum Computing with Edge and Cloud Platforms</li>
+              <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--secondary);"></i><em>Not limited to</em></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Note -->
+      <div class="text-center mt-5">
+        <div class="card p-4" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(6, 182, 212, 0.05)); border: 1px solid rgba(99, 102, 241, 0.1);">
+          <h5 class="mb-3" style="color: var(--primary);">
+            <i class="bi bi-info-circle me-2"></i>Submission Guidelines
+          </h5>
+          <p class="mb-0" style="color: #475569;">
+            The symposium welcomes submissions across all quantum computing domains. Topics are <strong>not limited to</strong> the tracks listed above. 
+            We encourage innovative research that pushes the boundaries of quantum science and technology.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="submission-guidelines">
+    <div class="container fade">
+      <h2 class="text-center mb-5">Author & Submission Guidelines</h2>
+      
+      <div class="row g-4">
+        <!-- Author Guidelines -->
+        <div class="col-lg-6">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center mb-4">
+              <i class="bi bi-person-check fs-2 me-3" style="color: var(--primary);"></i>
+              <h3 class="mb-0">Author Guidelines</h3>
+            </div>
+            
+            <p class="mb-4">Authors are invited to submit original, unpublished research papers to the symposium. Submissions should follow the guidelines below:</p>
+            
+            <!-- Full Paper Preparation -->
+            <div class="mb-4">
+              <h5 class="d-flex align-items-center mb-3">
+                <i class="bi bi-file-earmark-text me-2" style="color: var(--secondary);"></i>
+                1. Full Paper Preparation
+              </h5>
+              <ul class="list-unstyled ms-4">
+                <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--accent);"></i>Follow Springer's LNNS formatting guidelines</li>
+                <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--accent);"></i>Paper length: 6–8 pages including figures, tables, and references</li>
+                <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--accent);"></i>Include abstract & keywords, introduction, methodology, results & discussion, conclusion, and references</li>
+                <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--accent);"></i>Use clear, high-quality figures and number all sequentially</li>
+                <li class="mb-0"><i class="bi bi-arrow-right me-2" style="color: var(--accent);"></i>References should follow LNNS style and include DOI links where possible</li>
+              </ul>
+            </div>
+
+            <!-- File Format -->
+            <div class="mb-4">
+              <h5 class="d-flex align-items-center mb-3">
+                <i class="bi bi-filetype-pdf me-2" style="color: var(--secondary);"></i>
+                2. File Format
+              </h5>
+              <ul class="list-unstyled ms-4">
+                <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--accent);"></i>Submit PDF files for both abstracts and full papers</li>
+                <li class="mb-0"><i class="bi bi-arrow-right me-2" style="color: var(--accent);"></i>Ensure all fonts are embedded and figures are clear</li>
+              </ul>
+            </div>
+
+            <!-- Content Requirements -->
+            <div class="mb-4">
+              <h5 class="d-flex align-items-center mb-3">
+                <i class="bi bi-clipboard-check me-2" style="color: var(--secondary);"></i>
+                3. Content Requirements
+              </h5>
+              <ul class="list-unstyled ms-4">
+                <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--accent);"></i>Original research only; no plagiarism</li>
+                <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--accent);"></i>Preliminary results must demonstrate the novelty and potential impact of the work</li>
+                <li class="mb-0"><i class="bi bi-arrow-right me-2" style="color: var(--accent);"></i>Authors may be asked to revise papers based on reviewer comments</li>
+              </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="alert alert-info d-flex align-items-center">
+              <i class="bi bi-envelope me-2"></i>
+              <div>
+                <strong>For Any Queries:</strong><br>
+                Email us at <a href="mailto:contact.isqca2025@gmail.com" class="text-decoration-none">contact.isqca2025@gmail.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submission Guidelines -->
+        <div class="col-lg-6">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center mb-4">
+              <i class="bi bi-upload fs-2 me-3" style="color: var(--primary);"></i>
+              <h3 class="mb-0">Submission Guidelines</h3>
+            </div>
+            
+            <div class="mb-4">
+              <ul class="list-unstyled">
+                <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--accent);"></i>All submissions must be made through the Microsoft Conference Management Toolkit (CMT)</li>
+                <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--accent);"></i>Authors should create a CMT account and upload all required documents online</li>
+                <li class="mb-2"><i class="bi bi-arrow-right me-2" style="color: var(--accent);"></i>Abstracts and full papers must strictly follow formatting instructions</li>
+                <li class="mb-0"><i class="bi bi-arrow-right me-2" style="color: var(--accent);"></i>Each submission will be peer-reviewed by at least two independent reviewers</li>
+              </ul>
+            </div>
+
+            <!-- Where to Submit -->
+            <div class="mb-4">
+              <h5 class="d-flex align-items-center mb-3">
+                <i class="bi bi-geo-alt me-2" style="color: var(--secondary);"></i>
+                Where to Submit
+              </h5>
+              <div class="bg-light p-3 rounded">
+                <p class="mb-2"><strong>Submission Portal:</strong> Microsoft CMT</p>
+                <p class="mb-3"><strong>Symposium CMT Page:</strong></p>
+                <a href="https://cmt3.research.microsoft.com/SPARCQC2026/Submission/Index" target="_blank" class="btn btn-primary btn-sm mb-2">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>Access CMT Portal
+                </a>
+                <p class="mb-0 small text-muted">All submissions must be completed electronically via CMT portal.</p>
+              </div>
+            </div>
+
+            <!-- How to Submit -->
+            <div class="mb-4">
+              <h5 class="d-flex align-items-center mb-3">
+                <i class="bi bi-list-ol me-2" style="color: var(--secondary);"></i>
+                How to Submit
+              </h5>
+              <ol class="list-unstyled ms-3">
+                <li class="mb-2">
+                  <span class="badge bg-primary rounded-pill me-2">1</span>
+                  Create an account on CMT (if not registered)
+                </li>
+                <li class="mb-2">
+                  <span class="badge bg-primary rounded-pill me-2">2</span>
+                  Log in to the symposium's CMT page
+                </li>
+                <li class="mb-2">
+                  <span class="badge bg-primary rounded-pill me-2">3</span>
+                  Click "New Submission"
+                </li>
+                <li class="mb-2">
+                  <span class="badge bg-primary rounded-pill me-2">4</span>
+                  Fill in paper title, author details, abstract, and keywords
+                </li>
+                <li class="mb-2">
+                  <span class="badge bg-primary rounded-pill me-2">5</span>
+                  Upload the PDF version of your abstract or full paper
+                </li>
+                <li class="mb-0">
+                  <span class="badge bg-primary rounded-pill me-2">6</span>
+                  Confirm by clicking "Submit" to receive a confirmation email
+                </li>
+              </ol>
+            </div>
+
+            <!-- Confirmation Note -->
+            <div class="alert alert-success d-flex align-items-center">
+              <i class="bi bi-check-circle me-2"></i>
+              <div>
+                <strong>Confirmation:</strong> Authors will receive a confirmation email after successful submission.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="committee" class="bg-light">
+    <div class="container fade">
+      <h2 class="text-center mb-5">Committee</h2>
+      
+      <div class="row g-4">
+        <!-- Patrons -->
+        <div class="col-12">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center mb-4">
+              <i class="bi bi-award fs-2 me-3" style="color: var(--primary);"></i>
+              <h3 class="mb-0">Patrons</h3>
+            </div>
+            
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="p-3 bg-light rounded">
+                  <h6 class="mb-1 fw-bold text-primary">Chief Patron</h6>
+                  <p class="mb-0">Prof. K. Umamaheshwar Rao<br>
+                  <small class="text-muted">Director, NIT Rourkela, India</small></p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 bg-light rounded">
+                  <h6 class="mb-1 fw-bold text-primary">Patron</h6>
+                  <p class="mb-0">Prof. Swadesh Kumar Pratihar<br>
+                  <small class="text-muted">Dean of SRICCE, NIT Rourkela, India</small></p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-3">
+              <div class="p-3 bg-light rounded">
+                <h6 class="mb-1 fw-bold text-primary">Convener</h6>
+                <p class="mb-0">Prof. Bibhudatta Sahoo<br>
+                <small class="text-muted">HOD, Dept. of CSE, NIT Rourkela, India</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- General Chair -->
+        <div class="col-lg-6">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center mb-4">
+              <i class="bi bi-person-badge fs-2 me-3" style="color: var(--secondary);"></i>
+              <h3 class="mb-0">General Chair</h3>
+            </div>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-3 p-2 bg-light rounded">
+                <strong>Prof. Arunabha Sen</strong><br>
+                <small class="text-muted">Arizona State University, USA</small>
+              </li>
+              <li class="mb-3 p-2 bg-light rounded">
+                <strong>Prof. Shyamapada Mukherjee</strong><br>
+                <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+              </li>
+              <li class="mb-0 p-2 bg-light rounded">
+                <strong>Prof. Aviral Shrivastava</strong><br>
+                <small class="text-muted">Arizona State University, USA</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Organizing Secretary -->
+        <div class="col-lg-6">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center mb-4">
+              <i class="bi bi-clipboard-person fs-2 me-3" style="color: var(--accent);"></i>
+              <h3 class="mb-0">Organizing Secretary</h3>
+            </div>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-3 p-2 bg-light rounded">
+                <strong>Prof. Shyamapada Mukherjee</strong><br>
+                <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+              </li>
+              <li class="mb-3 p-2 bg-light rounded">
+                <strong>Prof. Sumanta Pyne</strong><br>
+                <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+              </li>
+              <li class="mb-0 p-2 bg-light rounded">
+                <strong>Prof. Arun Kumar</strong><br>
+                <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Organizing Committee -->
+        <div class="col-lg-6">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center mb-4">
+              <i class="bi bi-people fs-2 me-3" style="color: var(--primary);"></i>
+              <h3 class="mb-0">Organizing Committee</h3>
+            </div>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-3 p-2 bg-light rounded">
+                <strong>Prof. Sanjeev Patel</strong><br>
+                <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+              </li>
+              <li class="mb-3 p-2 bg-light rounded">
+                <strong>Prof. Judhistir Mahapatro</strong><br>
+                <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+              </li>
+              <li class="mb-0 p-2 bg-light rounded">
+                <strong>Prof. Sibarama Panigrahi</strong><br>
+                <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Publication and Publicity Chairs -->
+        <div class="col-lg-6">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center mb-4">
+              <i class="bi bi-megaphone fs-2 me-3" style="color: var(--secondary);"></i>
+              <h3 class="mb-0">Publication & Publicity Chairs</h3>
+            </div>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-3 p-2 bg-light rounded">
+                <strong>Prof. Panthadeep Bhattacharjee</strong><br>
+                <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+              </li>
+              <li class="mb-3 p-2 bg-light rounded">
+                <strong>Prof. Prasenjit Dey</strong><br>
+                <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+              </li>
+              <li class="mb-0 p-2 bg-light rounded">
+                <strong>Prof. Dev Narayan Yadav</strong><br>
+                <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Finance Chairs -->
+        <div class="col-lg-6">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center mb-4">
+              <i class="bi bi-cash-coin fs-2 me-3" style="color: var(--accent);"></i>
+              <h3 class="mb-0">Finance Chairs</h3>
+            </div>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-3 p-2 bg-light rounded">
+                <strong>Prof. Arun Kumar</strong><br>
+                <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+              </li>
+              <li class="mb-0 p-2 bg-light rounded">
+                <strong>Prof. Shyamapada Mukherjee</strong><br>
+                <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Technical Programme Committee -->
+        <div class="col-lg-6">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center mb-4">
+              <i class="bi bi-gear-wide-connected fs-2 me-3" style="color: var(--primary);"></i>
+              <h3 class="mb-0">Technical Programme Committee</h3>
+            </div>
+            <div class="row g-2">
+              <div class="col-12">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Prof. Amlan Chakraborty</strong><br>
+                  <small class="text-muted">University of Calcutta, India</small>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Prof. Rolf Dreschler</strong><br>
+                  <small class="text-muted">Universität Bremen, Germany</small>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Prof. Naresh Babu</strong><br>
+                  <small class="text-muted">IIITDM Kurnool, India</small>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Prof. Anish Saha</strong><br>
+                  <small class="text-muted">NIT Silchar, India</small>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Prof. Suganya Devi K</strong><br>
+                  <small class="text-muted">NIT Silchar, India</small>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Mr. Devdulal</strong><br>
+                  <small class="text-muted">C-DAC, India</small>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Prof. Bibhash Sen</strong><br>
+                  <small class="text-muted">NIT Durgapur, India</small>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Dr. Debasis Gountia</strong><br>
+                  <small class="text-muted">OUTR, Odisha, India</small>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Dr. Mustafizur Rahman</strong><br>
+                  <small class="text-muted">IBM, India</small>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Prof. Manas Kumar Bera</strong><br>
+                  <small class="text-muted">NIT Rourkela, India</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Advisory Committee -->
+        <div class="col-12">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center mb-4">
+              <i class="bi bi-lightbulb fs-2 me-3" style="color: var(--secondary);"></i>
+              <h3 class="mb-0">Advisory Committee</h3>
+            </div>
+            <div class="row g-2">
+              <div class="col-md-6 col-lg-4">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Prof. Ashok Kumar Turuk</strong><br>
+                  <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Prof. Durga Prasad Mohapatra</strong><br>
+                  <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Prof. Pankaj Kumar Sa</strong><br>
+                  <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Prof. Pabitra Mohan Khilar</strong><br>
+                  <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Prof. Banshidhar Majhi</strong><br>
+                  <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Prof. Ramesh Kumar Mohapatra</strong><br>
+                  <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Prof. Ratnakar Dash</strong><br>
+                  <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Prof. Sambit Bakshi</strong><br>
+                  <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Prof. Suchismita Chinara</strong><br>
+                  <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Prof. Anup Nandy</strong><br>
+                  <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Prof. Manmath Narayan Sahoo</strong><br>
+                  <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Prof. Sujata Mohanty</strong><br>
+                  <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Prof. Tapas Kumar Mishra</strong><br>
+                  <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Prof. Puneet Kumar Jain</strong><br>
+                  <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="p-2 bg-light rounded mb-2">
+                  <strong>Prof. S. Asha</strong><br>
+                  <small class="text-muted">Dept. of CSE, NIT Rourkela, India</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="registration">
+    <div class="container fade">
+      <h2 class="text-center mb-5">Registration Fee</h2>
+      
+      <div class="row g-4 justify-content-center">
+        <!-- Indian Participants -->
+        <div class="col-lg-6">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center mb-4">
+              <i class="bi bi-geo-alt-fill fs-2 me-3" style="color: var(--primary);"></i>
+              <h3 class="mb-0">Indian Participants</h3>
+            </div>
+            
+            <div class="row g-3">
+              <div class="col-12">
+                <div class="p-3 rounded" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(99, 102, 241, 0.02)); border: 1px solid rgba(99, 102, 241, 0.1);">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <h5 class="mb-1 fw-bold" style="color: var(--primary);">Academicians</h5>
+                      <small class="text-muted">Faculty & Research Scholars</small>
+                    </div>
+                    <div class="text-end">
+                      <h4 class="mb-0 fw-bold" style="color: var(--primary);">₹4,000</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-12">
+                <div class="p-3 rounded" style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.05), rgba(6, 182, 212, 0.02)); border: 1px solid rgba(6, 182, 212, 0.1);">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <h5 class="mb-1 fw-bold" style="color: var(--secondary);">Industry Experts</h5>
+                      <small class="text-muted">Corporate & Professional</small>
+                    </div>
+                    <div class="text-end">
+                      <h4 class="mb-0 fw-bold" style="color: var(--secondary);">₹8,000</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-12">
+                <div class="p-3 rounded" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.05), rgba(34, 197, 94, 0.02)); border: 1px solid rgba(34, 197, 94, 0.1);">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <h5 class="mb-1 fw-bold" style="color: var(--accent);">Students</h5>
+                      <small class="text-muted">UG, PG & PhD Students</small>
+                    </div>
+                    <div class="text-end">
+                      <h4 class="mb-0 fw-bold" style="color: var(--accent);">₹3,000</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-12">
+                <div class="p-3 rounded" style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.05), rgba(168, 85, 247, 0.02)); border: 1px solid rgba(168, 85, 247, 0.1);">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <h5 class="mb-1 fw-bold" style="color: #a855f7;">Attendees / Co-Authors</h5>
+                      <small class="text-muted">Non-presenting participants</small>
+                    </div>
+                    <div class="text-end">
+                      <h4 class="mb-0 fw-bold" style="color: #a855f7;">₹2,500</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- International Participants -->
+        <div class="col-lg-6">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center mb-4">
+              <i class="bi bi-globe fs-2 me-3" style="color: var(--secondary);"></i>
+              <h3 class="mb-0">International Participants</h3>
+            </div>
+            
+            <div class="row g-3">
+              <div class="col-12">
+                <div class="p-4 rounded" style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(6, 182, 212, 0.03)); border: 1px solid rgba(6, 182, 212, 0.15);">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <h5 class="mb-1 fw-bold" style="color: var(--secondary);">General</h5>
+                      <small class="text-muted">All international participants</small>
+                    </div>
+                    <div class="text-end">
+                      <h4 class="mb-0 fw-bold" style="color: var(--secondary);">USD 200</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-12">
+                <div class="p-4 rounded" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(34, 197, 94, 0.03)); border: 1px solid rgba(34, 197, 94, 0.15);">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <h5 class="mb-1 fw-bold" style="color: var(--accent);">SAARC Countries</h5>
+                      <small class="text-muted">Bangladesh, Bhutan, Maldives, Nepal, Pakistan, Sri Lanka, Afghanistan</small>
+                    </div>
+                    <div class="text-end">
+                      <h4 class="mb-0 fw-bold" style="color: var(--accent);">USD 150</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Registration Note -->
+              <div class="col-12 mt-4">
+                <div class="alert alert-info d-flex align-items-start">
+                  <i class="bi bi-info-circle me-2 mt-1"></i>
+                  <div>
+                    <h6 class="mb-2">Registration Information</h6>
+                    <ul class="mb-0 small">
+                      <li>Registration fee includes symposium materials, meals, and certificate</li>
+                      <li>Payment details will be provided upon acceptance</li>
+                      <li>Registration is mandatory for paper presentation</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Registration CTA -->
+      <div class="text-center mt-5">
+        <div class="card p-4" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(6, 182, 212, 0.05)); border: 1px solid rgba(99, 102, 241, 0.1);">
+          <h5 class="mb-3" style="color: var(--primary);">
+            <i class="bi bi-calendar-check me-2"></i>Ready to Register?
+          </h5>
+          <p class="mb-3" style="color: #475569;">
+            Registration will open after paper acceptance. Detailed payment instructions will be sent to accepted authors.
+          </p>
+          <a href="#cfp" class="btn btn-primary px-4 py-2" style="border-radius: 25px; font-weight: 600;">
+            <i class="bi bi-arrow-up-circle me-2"></i>Submit Your Paper First
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="important-info" class="bg-light">
+    <div class="container fade">
+      <h2 class="text-center mb-5">Important Information</h2>
+      
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="card p-5">
+            <div class="d-flex align-items-center mb-4">
+              <i class="bi bi-exclamation-triangle fs-2 me-3" style="color: var(--primary);"></i>
+              <h3 class="mb-0">Please Note</h3>
+            </div>
+            
+            <div class="row g-4">
+              <!-- GST Information -->
+              <div class="col-md-6">
+                <div class="d-flex align-items-start p-3 rounded" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(99, 102, 241, 0.02)); border-left: 4px solid var(--primary);">
+                  <i class="bi bi-receipt fs-4 me-3 mt-1" style="color: var(--primary);"></i>
+                  <div>
+                    <h5 class="mb-2 fw-bold" style="color: var(--primary);">GST Inclusive</h5>
+                    <p class="mb-0 text-muted">Registration fee is inclusive of GST. No additional taxes will be charged.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Lunch Information -->
+              <div class="col-md-6">
+                <div class="d-flex align-items-start p-3 rounded" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.05), rgba(34, 197, 94, 0.02)); border-left: 4px solid var(--accent);">
+                  <i class="bi bi-cup-hot fs-4 me-3 mt-1" style="color: var(--accent);"></i>
+                  <div>
+                    <h5 class="mb-2 fw-bold" style="color: var(--accent);">Working Lunch</h5>
+                    <p class="mb-0 text-muted">Working lunch will be provided during the conference for all registered participants.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Accommodation Information -->
+              <div class="col-md-6">
+                <div class="d-flex align-items-start p-3 rounded" style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.05), rgba(6, 182, 212, 0.02)); border-left: 4px solid var(--secondary);">
+                  <i class="bi bi-building fs-4 me-3 mt-1" style="color: var(--secondary);"></i>
+                  <div>
+                    <h5 class="mb-2 fw-bold" style="color: var(--secondary);">Accommodation</h5>
+                    <p class="mb-0 text-muted">Accommodation is not included in registration fee. On-campus accommodation may be arranged on payment basis, subject to availability.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Travel Allowance Information -->
+              <div class="col-md-6">
+                <div class="d-flex align-items-start p-3 rounded" style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.05), rgba(168, 85, 247, 0.02)); border-left: 4px solid #a855f7;">
+                  <i class="bi bi-airplane fs-4 me-3 mt-1" style="color: #a855f7;"></i>
+                  <div>
+                    <h5 class="mb-2 fw-bold" style="color: #a855f7;">Travel & DA</h5>
+                    <p class="mb-0 text-muted">No TA/DA (Travel Allowance/Dearness Allowance) will be provided to participants.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Additional Contact Information -->
+            <div class="mt-4 p-4 rounded" style="background: linear-gradient(135deg, rgba(255, 193, 7, 0.05), rgba(255, 193, 7, 0.02)); border: 1px solid rgba(255, 193, 7, 0.2);">
+              <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-info-circle fs-5 me-2" style="color: #fbbf24;"></i>
+                <h6 class="mb-0 fw-bold" style="color: #f59e0b;">Need Assistance?</h6>
+              </div>
+              <p class="mb-2 text-muted">For accommodation arrangements or any other queries regarding the symposium, please contact us:</p>
+              <div class="d-flex align-items-center">
+                <i class="bi bi-envelope me-2" style="color: #f59e0b;"></i>
+                <a href="mailto:contact.isqca2025@gmail.com" class="text-decoration-none fw-semibold" style="color: #f59e0b;">contact.isqca2025@gmail.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="row g-5">
+        <!-- ABOUT SECTION - Enhanced -->
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-section">
+            <div class="d-flex align-items-center mb-3">
+              <div class="footer-logo-icon me-3">
+                <i class="bi bi-mortarboard-fill fs-4" style="color: var(--secondary);"></i>
+              </div>
+              <div>
+                <h5 class="footer-title mb-1">SPARC SHCR 2026</h5>
+                <small class="text-muted">Smart Healthcare & Robotics</small>
+              </div>
+            </div>
+            <p class="footer-desc mb-3">
+              International Symposium on Smart Health Care and Robotics, hosted by the 
+              Department of Computer Science & Engineering, NIT Rourkela, India.
+            </p>
+            
+            <!-- Enhanced Social Icons -->
+            <div class="social-links">
+              <h6 class="footer-subtitle mb-3">Follow Us</h6>
+              <div class="d-flex gap-2">
+                <a href="#" class="social-icon" title="LinkedIn">
+                  <i class="bi bi-linkedin"></i>
+                </a>
+                <a href="#" class="social-icon" title="Twitter">
+                  <i class="bi bi-twitter-x"></i>
+                </a>
+                <a href="#" class="social-icon" title="YouTube">
+                  <i class="bi bi-youtube"></i>
+                </a>
+                <a href="#" class="social-icon" title="Facebook">
+                  <i class="bi bi-facebook"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- QUICK LINKS - Enhanced -->
+        <div class="col-lg-2 col-md-6">
+          <div class="footer-section">
+            <h5 class="footer-title">Quick Links</h5>
+            <ul class="footer-links">
+              <li><a href="#home" class="footer-link">Home</a></li>
+              <li><a href="#cfp" class="footer-link">Call for Papers</a></li>
+              <li><a href="#objectives" class="footer-link">Objectives</a></li>
+              <li><a href="#about" class="footer-link">About</a></li>
+              <li><a href="#dates" class="footer-link">Important Dates</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- MORE LINKS - Enhanced -->
+        <div class="col-lg-2 col-md-6">
+          <div class="footer-section">
+            <h5 class="footer-title">Resources</h5>
+            <ul class="footer-links">
+              <li><a href="#tracks" class="footer-link">Tracks</a></li>
+              <li><a href="#committee" class="footer-link">Committee</a></li>
+              <li><a href="#registration" class="footer-link">Registration</a></li>
+              <li><a href="#submission-guidelines" class="footer-link">Guidelines</a></li>
+              <li><a href="#important-info" class="footer-link">Information</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CONTACT INFO - Enhanced -->
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-section">
+            <h5 class="footer-title">Contact Information</h5>
+            
+            <!-- Address -->
+            <div class="contact-item mb-3">
+              <div class="d-flex align-items-start">
+                <i class="bi bi-geo-alt-fill me-3 mt-1" style="color: var(--secondary);"></i>
+                <div>
+                  <h6 class="mb-2 fw-semibold">Address</h6>
+                  <p class="mb-0" style="color: #cbd5e1; font-size: 14px; line-height: 1.6;">
+                    Department of Computer Science & Engineering<br>
+                    National Institute of Technology Rourkela<br>
+                    Odisha, India – 769008
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="contact-item mb-3">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-envelope-fill me-3" style="color: var(--secondary);"></i>
+                <div>
+                  <h6 class="mb-1 fw-semibold">Email</h6>
+                  <a href="mailto:contact.isqca2025@gmail.com" class="footer-link d-inline">
+                    contact.isqca2025@gmail.com
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Website -->
+            <div class="contact-item">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-globe me-3" style="color: var(--secondary);"></i>
+                <div>
+                  <h6 class="mb-1 fw-semibold">Institute</h6>
+                  <a href="https://www.nitrkl.ac.in" target="_blank" class="footer-link d-inline">
+                    www.nitrkl.ac.in
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Enhanced Footer Bottom -->
+      <div class="footer-bottom">
+        <div class="row align-items-center">
+          <div class="col-md-8">
+            <div class="footer-credits">
+              <p class="mb-1">
+                <i class="bi bi-microsoft me-2" style="color: var(--secondary);"></i>
+                Microsoft CMT service was used for managing peer-review and was provided free by Microsoft.
+              </p>
+              <p class="mb-0">
+                <i class="bi bi-c-circle me-2" style="color: var(--secondary);"></i>
+                ©️ 2026 SPARC SHCR | Department of CSE, NIT Rourkela
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 text-md-end">
+            <div class="footer-badges">
+              <span class="badge bg-primary me-2">
+                <i class="bi bi-award me-1"></i>NIT Rourkela
+              </span>
+              <span class="badge bg-success">
+                <i class="bi bi-globe me-1"></i>International
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Fade-in animation observer
+    const obs = new IntersectionObserver(e => e.forEach(x => x.isIntersecting && x.target.classList.add('show')), { threshold: .2 });
+    document.querySelectorAll('.fade').forEach(f => obs.observe(f));
+
+    // Enhanced navbar scroll behavior - always visible
+    const navbar = document.querySelector('.navbar');
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function updateNavbar() {
+      const currentScrollY = window.scrollY;
+      
+      // At top state
+      if (currentScrollY <= 50) {
+        navbar.classList.add('at-top');
+        navbar.classList.remove('scrolled');
+      } else {
+        navbar.classList.remove('at-top');
+        navbar.classList.add('scrolled');
+      }
+      
+      // Always keep navbar visible
+      navbar.classList.remove('navbar-hidden');
+      navbar.classList.add('navbar-visible');
+      
+      lastScrollY = currentScrollY;
+      ticking = false;
+    }
+
+    function requestTick() {
+      if (!ticking) {
+        requestAnimationFrame(updateNavbar);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', requestTick, { passive: true });
+
+    // Ensure navbar is initially visible and properly styled
+    navbar.classList.add('navbar-visible', 'at-top');
+    navbar.classList.remove('navbar-hidden');
+
+    // Enhanced smooth scroll with better offset calculation
+    function smoothScrollTo(targetElement) {
+      if (!targetElement) return;
+      
+      const navbarHeight = navbar.offsetHeight;
+      const targetPosition = targetElement.offsetTop - navbarHeight - 20;
+      
+      window.scrollTo({
+        top: Math.max(0, targetPosition),
+        behavior: 'smooth'
+      });
+    }
+
+    // Navigation link click handlers
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Remove active class from all links
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(l => l.classList.remove('active'));
+        
+        // Add active class to clicked link
+        this.classList.add('active');
+        
+        // Get target section
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        
+        if (targetSection) {
+          smoothScrollTo(targetSection);
+          
+          // Close mobile menu if open
+          const navCollapse = document.querySelector('.navbar-collapse');
+          if (navCollapse && navCollapse.classList.contains('show')) {
+            const bsCollapse = bootstrap.Collapse.getInstance(navCollapse);
+            if (bsCollapse) {
+              bsCollapse.hide();
+            }
+          }
+        }
+      });
+    });
+
+    // Enhanced active section highlighting with intersection observer
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.getAttribute('id');
+          const correspondingLink = document.querySelector(`.navbar-nav .nav-link[href="#${sectionId}"]`);
+          
+          if (correspondingLink) {
+            // Remove active from all links
+            document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+              link.classList.remove('active');
+            });
+            
+            // Add active to current section link
+            correspondingLink.classList.add('active');
+          }
+        }
+      });
+    }, {
+      threshold: 0.3,
+      rootMargin: '-100px 0px -50% 0px'
+    });
+
+    // Observe all sections
+    document.querySelectorAll('section[id]').forEach(section => {
+      sectionObserver.observe(section);
+    });
+
+    // Scroll indicator click handler
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+      scrollIndicator.addEventListener('click', () => {
+        const nextSection = document.querySelector('#sponsors');
+        if (nextSection) {
+          smoothScrollTo(nextSection);
+        }
+      });
+    }
+
+    // Enhanced carousel with better performance
+    const heroCarousel = document.querySelector('#heroCarousel');
+    if (heroCarousel) {
+      const carousel = new bootstrap.Carousel(heroCarousel, {
+        interval: 7000,
+        wrap: true,
+        touch: true,
+        pause: 'hover'
+      });
+
+      // Preload next images for smoother transitions
+      const carouselItems = heroCarousel.querySelectorAll('.carousel-item img');
+      carouselItems.forEach(img => {
+        const newImg = new Image();
+        newImg.src = img.src;
+      });
+
+      // Pause carousel when page is not visible
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          carousel.pause();
+        } else {
+          carousel.cycle();
+        }
+      });
+    }
+
+    // Navbar mobile menu enhancement
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    
+    if (navbarToggler && navbarCollapse) {
+      navbarToggler.addEventListener('click', () => {
+        // Add slight delay for smoother animation
+        setTimeout(() => {
+          if (navbarCollapse.classList.contains('show')) {
+            document.body.style.overflow = 'hidden';
+          } else {
+            document.body.style.overflow = '';
+          }
+        }, 100);
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!navbar.contains(e.target) && navbarCollapse.classList.contains('show')) {
+          const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+          if (bsCollapse) {
+            bsCollapse.hide();
+            document.body.style.overflow = '';
+          }
+        }
+      });
+    }
+
+    // Performance optimization: debounce resize events
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        // Recalculate positions after resize
+        lastScrollY = window.scrollY;
+        updateNavbar();
+      }, 250);
+    });
+  </script>
+</body>
+
+</html>
